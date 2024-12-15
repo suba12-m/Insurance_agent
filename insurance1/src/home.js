@@ -4,7 +4,7 @@ import './home.css';
 
 const Home= () => {
   return (
-    <div className='' >
+    <div >
       <header className="header">
         <div className="logo">
         <img src="/images/ins_LOGO.png" alt="User Avatar" style={{ width: '290px',height:'100px'}} />

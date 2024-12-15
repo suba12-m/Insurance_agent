@@ -1,0 +1,96 @@
+/* Table Container */
+.table-container {
+    width: 80%;
+    margin: 20px auto;
+    
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+
+.container {
+    display: flex;
+    height: 100vh;
+    background-color:#0b60b0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .dashboard {
+    flex: 1;
+    background: linear-gradient(180deg, #28527a, #6fb1fc);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    color: white;
+    text-align: center;
+}
+
+.dashboard h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.menu {
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+  /* Table Styles */
+  .insurance-table {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+  .insurance-table th,
+  .insurance-table td {
+    border: 1px solid #050505;
+    padding: 12px;
+    text-align: center;
+  }
+  
+  .insurance-table th {
+    background-color: #0078d7;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .insurance-table tr {
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  
+  .insurance-table tr:hover {
+    background-color: #e8f0fe;
+    cursor: pointer;
+  }
+  
+  /* Edit Button */
+  .edit-btn {
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .edit-btn:hover {
+    background-color: #005ea6;
+  }
+  
