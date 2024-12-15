@@ -1,0 +1,146 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+ 
+ 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #c7d8eb, #ffffff);
+}
+ 
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #0b0b0b;
+  }
+  
+  .header .logo img {
+    height: 50px;
+  }
+  
+  .header .nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .header .nav ul li {
+    margin-left: 20px;
+  }
+  
+  .header .nav ul li a {
+    color: #080808;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .header .nav ul li a:hover {
+    color: #1d44e1;
+  }
+  
+  .banner {
+    text-align:center;
+    background: linear-gradient(to right, #4c8bf5, #1e62d0);
+    color: #fff;
+    padding: 50px 20px;
+  }
+  
+  .banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .banner p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .banner button {
+    padding: 10px 20px;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .banner button:hover {
+    background-color: #ffae00;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #fff;
+    padding:20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .feature-item {
+    background-color: #4c8bf5;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .feature-item:hover {
+    background-color: #1e62d0;
+  }
+  
+  .insurance {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .insurance-item {
+    text-align: center;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .insurance-item img {
+    width: 70px;
+    margin-bottom: 10px;
+  }
+  
+  .insurance-item p {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .insurance-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    align-content: flex-end;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #4c8bf5;
+    color: #fff;
+    margin-top: 20px;
+  }
+  
