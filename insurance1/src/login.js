@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Login() {
   return (
-    <div>
+    <div >
       <header className="header">
         <div className="logo">
         <img src="/images/ins_LOGO.png" alt="User Avatar" style={{ width: '290px',height:'100px'}} />

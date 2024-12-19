@@ -1,4 +1,4 @@
-*{
+/* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,7 +12,7 @@ body {
   align-items: center;
   height: 100vh;
   background: linear-gradient(to right, #c7d8eb, #ffffff);
-}
+} */
  
   .header {
     display: flex;

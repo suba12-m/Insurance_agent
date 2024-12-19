@@ -5,6 +5,7 @@ import Home from './home';
 import Dashboard from './dashboard';
 import Customer from './customer';
 import Policy from './policy';
+
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/customer" element={<Customer />} />
           <Route path="/policy" element={<Policy />} />
+
         </Routes>
       </div>
     </Router>
