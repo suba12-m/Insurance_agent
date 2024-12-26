@@ -15,37 +15,37 @@ const Home1 = () => {
       imgSrc: "/images/car.jpg",
       title: "Car Insurance",
       description: "Protects your car against damages, accidents, and theft.",
-      path: "/car-insurance"
+      path: "/insurances/car"
     },
     {
       imgSrc: "/images/bike.jpg",
       title: "Bike Insurance",
       description: "Comprehensive coverage for bikes against accidents and theft.",
-      path: "/bike-insurance"
+      path: "/insurances/bike"
     },
     {
       imgSrc: "/images/travel.png",
       title: "Travel Insurance",
       description: "Covers trip cancellations, medical emergencies, and more.",
-      path: "/travel-insurance"
+      path: "/insurances/travel"
     },
     {
-      imgSrc: "/images/health.jpg",
-      title: "Health Insurance",
-      description: "Ensures financial coverage for medical and hospital expenses.",
-      path: "/health-insurance"
+      imgSrc: "/images/fire.jpg",
+      title: "Fire Insurance",
+      description: "Offers financial protection against damages caused by fire and related incidents.",
+      path: "/insurances/fire"
     },
     {
       imgSrc: "/images/life.png",
       title: "Life Insurance",
       description: "Provides financial security for your loved ones.",
-      path: "/life-insurance"
+      path: "/insurances/life"
     },
     {
       imgSrc: "/images/home.png",
       title: "Home Insurance",
       description: "Protects your home and belongings from unforeseen damages.",
-      path: "/home-insurance"
+      path: "/insurances/homeIns"
     },
   ];
 

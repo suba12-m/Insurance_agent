@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import './CarInsuranceForm.css';
+import './life.css';
 
-const CarInsuranceForm = () => {
+const Life= () => {
   const [formData, setFormData] = useState({
-    ownerName: '',
-    carModel: '',
-    registrationNumber: '',
+    fullName: '',
+    age: '',
+    gender: '',
     contactNumber: '',
     email: '',
+    coverageAmount: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -27,57 +28,63 @@ const CarInsuranceForm = () => {
       console.log('Form Data:', formData);
       // Reset form
       setFormData({
-        ownerName: '',
-        carModel: '',
-        registrationNumber: '',
+        fullName: '',
+        age: '',
+        gender: '',
         contactNumber: '',
         email: '',
+        coverageAmount: '',
       });
     }
   };
 
   return (
-    <div className="car-insurance-form">
-      <h2>Car Insurance Application</h2>
+    <div className="life-insurance-form">
+      <h2>Life Insurance Application</h2>
       {submitted ? (
         <div className="success-message">
           <h3>Thank You!</h3>
-          <p>Your car insurance application has been submitted successfully.</p>
+          <p>Your life insurance application has been submitted successfully.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Owner's Name:</label>
+            <label>Full Name:</label>
             <input
               type="text"
-              name="ownerName"
-              value={formData.ownerName}
+              name="fullName"
+              value={formData.fullName}
               onChange={handleChange}
-              placeholder="Enter owner's name"
+              placeholder="Enter full name"
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Age:</label>
+            <input
+              type="number"
+              name="age"
+              value={formData.age}
+              onChange={handleChange}
+              placeholder="Enter age"
               required
             />
           </div>
           <div className="form-group">
-            <label>Car Model:</label>
-            <input
-              type="text"
-              name="carModel"
-              value={formData.carModel}
+            <label>Gender:</label>
+            <select
+              name="gender"
+              value={formData.gender}
               onChange={handleChange}
-              placeholder="Enter car model"
+              
               required
-            />
-          </div>
-          <div className="form-group">
-            <label>Registration Number:</label>
-            <input
-              type="text"
-              name="registrationNumber"
-              value={formData.registrationNumber}
-              onChange={handleChange}
-              placeholder="Enter registration number"
-              required
-            />
+            >
+              <option placeholder="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
           <div className="form-group">
             <label>Contact Number:</label>
@@ -101,6 +108,17 @@ const CarInsuranceForm = () => {
               required
             />
           </div>
+          <div className="form-group">
+            <label>Coverage Amount:</label>
+            <input
+              type="number"
+              name="coverageAmount"
+              value={formData.coverageAmount}
+              onChange={handleChange}
+              placeholder="Enter coverage amount"
+              required
+            />
+          </div>
           <button type="submit" className="submit-button">Submit</button>
         </form>
       )}
@@ -108,4 +126,4 @@ const CarInsuranceForm = () => {
   );
 };
 
-export default CarInsuranceForm;
+export default Life;

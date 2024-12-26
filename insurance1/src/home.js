@@ -23,9 +23,9 @@ const Home = () => {
       description: "Covers trip cancellations, medical emergencies, and more.",
     },
     {
-      imgSrc: "/images/health.jpg",
-      title: "Health Insurance",
-      description: "Ensures financial coverage for medical and hospital expenses.",
+      imgSrc: "/images/fire.jpg",
+      title: "Fire Insurance",
+      description: "Offers financial protection against damages caused by fire and related incidents.",
     },
     {
       imgSrc: "/images/life.png",
