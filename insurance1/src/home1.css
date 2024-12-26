@@ -1,0 +1,90 @@
+
+.header .nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .header .nav ul li {
+    margin-left: 20px;
+  }
+  
+  .header .nav ul li a {
+    color: #080808;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .header .nav ul li a:hover {
+    color: #1d44e1;
+  }
+
+.li{
+    text-align: center;
+}
+
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+    text-align: center; /* Centering the dropdown container */
+}
+
+.profile-dropdown .user-icon {
+    width: 50px;
+    height: 30px; /* Adjust the size for better visibility */
+    border-radius: 50%;
+    cursor: pointer;
+    display: block; /* Make sure the icon is displayed as a block element */
+    
+}
+
+.dropdown-menu {
+    padding: 0;
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 150px;
+    z-index: 1000; /* Ensure the dropdown is always above other elements */
+}
+
+.profile-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    margin: 0%;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f0f0f0;
+}
+
+/* CSS for the logout button styling */
+.dropdown-menu li button {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 10px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%; /* Ensure full width */
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold; /* Make the text bold */
+  }
+  
+  .dropdown-menu li button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .dropdown-menu li a.active {
+    color: #fff; /* Text color when active */
+    background-color: rgba(0, 123, 255, 0.9); /* Blue background with transparency */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transition for color and background */
+  }

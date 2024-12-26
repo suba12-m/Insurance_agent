@@ -13,7 +13,13 @@ body {
   height: 100vh;
   background: linear-gradient(to right, #c7d8eb, #ffffff);
 } */
- 
+/* Apply the background image to the body */
+
+
+/* Other existing styles... */ 
+
+
+
   .header {
     display: flex;
     justify-content: space-between;
@@ -60,8 +66,13 @@ body {
   }
   
   .banner p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 20px;
+  }
+
+  p {
+    color: #ff2b00; /* Bootstrap danger color */
+    transition: opacity 0.5s ease;
   }
   
   .banner button {
@@ -104,38 +115,160 @@ body {
     background-color: #1e62d0;
   }
   
-  .insurance {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  .insurance-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
     padding: 20px;
   }
   
-  .insurance-item {
-    text-align: center;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+  /* Individual insurance boxes */
+  .insurance-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%; /* Adjust width as needed */
+    padding: 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff, #f3f3f3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
   }
   
-  .insurance-item img {
-    width: 70px;
-    margin-bottom: 10px;
+  .insurance-box img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
   }
   
-  .insurance-item p {
-    font-size: 1rem;
+  .insurance-box h3 {
+    margin: 0;
+    font-size: 1.2rem;
     font-weight: bold;
+    color: #333;
   }
   
-  .insurance-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    align-content: flex-end;
+  /* Description styling */
+  .insurance-description {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #444;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient color */
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
+  /* Hover effect */
+  .insurance-box:hover {
+    transform: scale(1.05); /* Slightly enlarge */
+    background: linear-gradient(135deg, #f3e6ff, #e6f3ff); /* Subtle hover gradient */
+  }
+  
+  .insurance-box:hover img {
+    transform: scale(1.1);
+  }
+  
+  .active .insurance-description {
+    display: block;
+  }
+  .insurance-box.active {
+    background-size: cover; /* Ensures the background image covers the entire box */
+    background-position: center; /* Center the image */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); /* Add some shadow for a nice effect */
+  }
+  
+  .insurance-box.active img {
+    transform: scale(1.1); /* Enlarge image when active */
+  }
+  
+  /* Modal Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Box */
+.modal-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Message Text */
+.modal-box p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Modal Actions */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #4caf50; /* Darker green */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #45a049;
+}
+
+.btn-secondary {
+  background-color: #f44336; /* Dark red */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #d32f2f;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
   footer {
     text-align: center;
     padding: 10px;
