@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './car.css';
 
 const Car = () => {
@@ -12,6 +13,7 @@ const Car = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate(); // Use navigate hook
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,21 +22,12 @@ const Car = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Validate the form data
     if (Object.values(formData).some((field) => field.trim() === '')) {
       alert('Please fill in all fields.');
     } else {
       setSubmitted(true);
       console.log('Form Data:', formData);
-      // Reset form
-      setFormData({
-        fullName: '',
-        carModel: '',
-        insuranceType: '',
-        registrationNumber: '',
-        contactNumber: '',
-        email: '',
-      });
+      navigate('/chart'); // Redirect to Chart page after submission
     }
   };
 
@@ -136,7 +129,9 @@ const Car = () => {
               required
             />
           </div>
-          <button type="submit" className="submit-button">Submit</button>
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
         </form>
       )}
     </div>

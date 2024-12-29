@@ -9,7 +9,7 @@
   /* Sidebar */
   .sidebar {
     width: 20%;
-    background-color: #2c2c2c;
+    background-color: linear-gradient(180deg, #4c8bf5, #1e62d0);
     color: #fff;
     padding: 20px;
   }

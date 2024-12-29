@@ -12,7 +12,7 @@
 .container {
     display: flex;
     height: 100vh;
-    background-color:#0b60b0;
+    background-color:#ffffff;
     font-family: Arial, sans-serif;
   }
 
@@ -25,7 +25,7 @@
   
   .dashboard {
     flex: 1;
-    background: linear-gradient(180deg, #28527a, #6fb1fc);
+    background: linear-gradient(180deg, #ededed, #ffffff);
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -39,6 +39,7 @@
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
+    color: black;
 }
 
 .menu {

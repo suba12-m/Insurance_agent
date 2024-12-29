@@ -10,18 +10,18 @@ const Dashboard = () => {
         <div className="menu">
           <a href="/dashboard" className="active" style={{ display: 'block', padding: '10px 20px', color: '#fff', textDecoration: 'none', fontSize: '16px', backgroundColor: '#444', borderLeft: '4px solid #f3d250' }}>Dashboard</a>
           <a href="/customer" style={{ display: 'block', padding: '10px 20px', color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Customer</a>
-          <a href="#" style={{ display: 'block', padding: '10px 20px', color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Category</a>
-          <a href="/policy" style={{ display: 'block', padding: '10px 20px', color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Policy</a>
-          <a href="#" style={{ display: 'block', padding: '10px 20px', color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Questions</a>
+          {/* <a href="#" style={{ display: 'block', padding: '10px 20px', color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Category</a> */}
+          {/* <a href="/policy" style={{ display: 'block', padding: '10px 20px', color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Policy</a> */}
+          <a href="/faq" style={{ display: 'block', padding: '10px 20px', color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Questions</a>
         </div>
       </div>
       <div className="dashboard">
-        <h1 style={{  textAlign: 'center', fontSize: '24px', marginBottom: '10px', color: 'white' }}>Insurance Agent</h1>
+        <h1 style={{  textAlign: 'center', fontSize: '44px', marginBottom: '10px', color: 'black' }}>Insurance Agent</h1>
         <div className="card" style={{ background: '#2e4a66', borderRadius: '10px', padding: '20px', textAlign: 'center', color: 'white' }}>
           <h3>Total Registered Users</h3>
           <p>7</p>
         </div>
-        <div className="card" style={{ background: '#2e4a66', marginBottom: '10px',borderRadius: '10px', padding: '20px', textAlign: 'center', color: 'white' }}>
+        <div className="card" style={{ background: '#4c8bf5', marginBottom: '10px',borderRadius: '10px', padding: '20px', textAlign: 'center', color: 'white' }}>
           <h3>Listed Policies</h3>
           <p>5</p>
         </div>

@@ -10,8 +10,10 @@ import Car from './insurances/car';
 import Bike from './insurances/bike';
 import Fire from './insurances/fire';
 import HomeIns from './insurances/homeIns';
-import Life from './insurances/life';
 import Travel from './insurances/travel';
+import Life from './insurances/life';
+import Chart from './insurances/Chart';
+import Faq from './faq';
 
 
 function App() {
@@ -28,11 +30,21 @@ function App() {
           <Route path="/customer" element={<Customer />} />
           <Route path="/policy" element={<Policy />} />
           <Route path="/insurances/car" element={<Car />} />
+          <Route path="chart" element={<Chart />} />
           <Route path="/insurances/bike" element={<Bike />} />
-          <Route path="/insurances/fire" element={<Fire />} />
           <Route path="/insurances/homeIns" element={<HomeIns />} />
-          <Route path="/insurances/life" element={<Life />} />
+          <Route path="/insurances/fire" element={<Fire />} />
           <Route path="/insurances/travel" element={<Travel />} />
+          <Route path="/insurances/life" element={<Life />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/edit-home/:id" element={<HomeIns />} />
+        <Route path="/edit-life/:id" element={<Life />} />
+        <Route path="/edit-travel/:id" element={<Travel />} />
+        <Route path="/edit-car/:id" element={<Car />} />
+        <Route path="/edit-bike/:id" element={<Bike />} />
+        <Route path="/edit-fire/:id" element={<Fire />} />
+
+          
         </Routes>
       </div>
     </Router>

@@ -1,13 +1,13 @@
 .container {
     display: flex;
     height: 100vh;
-    background-color:#0b60b0;
+    background-color:#83c0f1;
     font-family: Arial, sans-serif;
   }
 
 .sidebar {
     width: 20%;
-    background: linear-gradient(180deg, #3c3c3c, #1c1c1c);
+    background: linear-gradient(180deg, #4c8bf5, #1e62d0);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@
 
 .dashboard {
     flex: 1;
-    background: #0b60b0;
+    background: #aacceb;
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -57,16 +57,16 @@
 }
 
 .card {
-    background: #2e4a66;
+    background: #abc5de;
     border-radius: 5px;
-    padding: 10px;
+    /* padding: 10px; */
     
     text-align: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .card h3 {
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .card p {
