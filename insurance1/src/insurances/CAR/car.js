@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import './fire.css';
+import { useNavigate } from 'react-router-dom';
+import './car.css';
 
-const Fire = () => {
+const Car = () => {
   const [formData, setFormData] = useState({
     fullName: '',
-    propertyType: '',
-    fireRiskLevel: '',
-    propertyAddress: '',
+    carModel: '',
+    insuranceType: '',
+    registrationNumber: '',
     contactNumber: '',
     email: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate(); // Use navigate hook
+
   const [error, setError] = useState('');
 
   const handleChange = (e) => {
@@ -21,34 +24,34 @@ const Fire = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validate the form data
+  
     if (Object.values(formData).some((field) => field.trim() === '')) {
-      alert('Please fill in all fields.');
-      return;
+      setError('Please fill in all fields.');
+      return; // Prevent form submission if any field is empty
     }
-
+  
     try {
-      const response = await fetch('http://localhost:3000/api/submit-fire-form', {
+      const response = await fetch('http://localhost:3000/api/submit-car-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
         const result = await response.json();
         console.log(result);
         setSubmitted(true);
-        // Reset form
         setFormData({
           fullName: '',
-          propertyType: '',
-          fireRiskLevel: '',
-          propertyAddress: '',
+          carModel: '',
+          insuranceType: '',
+          registrationNumber: '',
           contactNumber: '',
           email: '',
         });
+        navigate('/insurances/CAR/CarChart'); // Redirect to chart page after successful submission
       } else {
         const errorData = await response.json();
         setError(errorData.error);
@@ -59,17 +62,18 @@ const Fire = () => {
     }
   };
 
+ 
   return (
-    <div className="fire-insurance-form">
-      <h2>Fire Insurance Application</h2>
+    <div className="car-insurance-form">
+      <h2>Car Insurance Application</h2>
       {submitted ? (
         <div className="success-message">
           <h3>Thank You!</h3>
-          <p>Your fire insurance application has been submitted successfully.</p>
+          <p>Your car insurance application has been submitted successfully.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-           {error && <div className="error-message">{error}</div>}
+          {error && <div className="error-message">{error}</div>}
           <div className="form-group">
             <label>Full Name:</label>
             <input
@@ -82,15 +86,43 @@ const Fire = () => {
             />
           </div>
           <div className="form-group">
-            <label>Property Type:</label>
+            <label>Car Model:</label>
             <select
-              name="propertyType"
-              value={formData.propertyType}
+              name="carModel"
+              value={formData.carModel}
               onChange={handleChange}
               required
             >
-              <option value="">Select Property Type</option>
-              {['Residential', 'Commercial', 'Industrial', 'Agricultural'].map((type, index) => (
+              <option value="">Select a Car Model</option>
+              {[
+                'Toyota Corolla',
+                'Honda Accord',
+                'Ford Explorer',
+                'Tesla Model S',
+                'BMW 3 Series',
+                'Audi A4',
+              ].map((model, index) => (
+                <option key={index} value={model}>
+                  {model}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Insurance Type:</label>
+            <select
+              name="insuranceType"
+              value={formData.insuranceType}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Insurance Type</option>
+              {[
+                'Comprehensive',
+                'Third-Party Liability',
+                'Collision Coverage',
+                'Personal Injury Protection',
+              ].map((type, index) => (
                 <option key={index} value={type}>
                   {type}
                 </option>
@@ -98,29 +130,13 @@ const Fire = () => {
             </select>
           </div>
           <div className="form-group">
-            <label>Fire Risk Level:</label>
-            <select
-              name="fireRiskLevel"
-              value={formData.fireRiskLevel}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select Risk Level</option>
-              {['Low', 'Medium', 'High', 'Critical'].map((risk, index) => (
-                <option key={index} value={risk}>
-                  {risk}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="form-group">
-            <label>Property Address:</label>
+            <label>Registration Number:</label>
             <input
               type="text"
-              name="propertyAddress"
-              value={formData.propertyAddress}
+              name="registrationNumber"
+              value={formData.registrationNumber}
               onChange={handleChange}
-              placeholder="Enter property address"
+              placeholder="Enter registration number"
               required
             />
           </div>
@@ -146,11 +162,14 @@ const Fire = () => {
               required
             />
           </div>
-          <button type="submit" className="submit-button">Submit</button>
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
         </form>
       )}
     </div>
+
   );
 };
 
-export default Fire;
+export default Car;

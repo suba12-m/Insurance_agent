@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Chart.css';
+import './CarChart.css';
 
 const CarChart = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const CarChart = () => {
   }, []);
 
   const handleApprove = () => {
-    navigate('/insurances/approvalform'); // Navigate to Approval Form page
+    navigate('/insurances/CAR/carapprove'); // Navigate to Approval Form page
   };
 
   const handleDisapprove = () => {

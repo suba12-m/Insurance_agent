@@ -1,9 +1,9 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './Quotation.css';
+import './BikeQuotation.css';
 import jsPDF from 'jspdf';
 
-const Quotation = () => {
+const BikeQuotation = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -22,18 +22,35 @@ const Quotation = () => {
   const downloadQuotationAsPDF = () => {
     const doc = new jsPDF();
 
+    // Add logo
+    const imgWidth = 60;
+    const imgHeight = 30;
+    const logoUrl = `${window.location.origin}/images/ins_LOGO.png`; // Reference logo in the public directory
+  
+    doc.addImage(logoUrl, 'PNG', 10, 10, imgWidth, imgHeight); // Left-aligned logo
+
     // Set the font style and size
-    doc.setFont('Arial', 'normal');  // Setting Arial font
+    doc.setFont('Helvetica', 'bold');
     doc.setFontSize(12);  // Set the font size
+    doc.text('Company Name: ABC Insurance Co.', 200, 30, { align: 'right' }); // Right-aligned text
+    doc.text('Address: 123 Main Street, City, Country', 200, 35, { align: 'right' });
+    doc.text('Phone: (123) 456-7890', 200, 40, { align: 'right' });
+    doc.text('Email: contact@abcinsurance.com', 200, 45, { align: 'right' });
 
     // Add title and content
-    doc.text('Insurance Quotation', 10, 10);
-    doc.setFontSize(10); // Reduce font size for details
+    doc.setFont('Helvetica', 'bold');
+    doc.setFontSize(16);
+    doc.text('Bike Insurance Quotation', 105, 70, { align: 'center' });    doc.setFontSize(10); // Reduce font size for details
+    
+    doc.setFontSize(12);
+    doc.setFont('Helvetica', 'bold');
     doc.text(`Full Name: ${clientDetails.fullName}`, 10, 30);
     doc.text(`Registration Number: ${clientDetails.registrationNumber}`, 10, 40);
     doc.text(`Contact Number: ${clientDetails.contactNumber}`, 10, 50);
     doc.text(`Email Address: ${clientDetails.email}`, 10, 60);
 
+    doc.setFontSize(12);
+    doc.setFont('Helvetica', 'bold');
     doc.text('Insurance Details:', 10, 80);
     doc.text(`Provider Name: ${selectedProvider}`, 10, 90);
     doc.text(`Plan Name: ${selectedPlan}`, 10, 100);
@@ -59,6 +76,8 @@ const Quotation = () => {
 
   return (
     <div className="quotation-container">
+            <img src="/images/ins_LOGO.png" alt="Company Logo" className="logo" />
+
       <h2 className="quotation-title">Insurance Quotation</h2>
       
       <div className="quotation-details">
@@ -93,4 +112,4 @@ const Quotation = () => {
   );
 };
 
-export default Quotation;
+export default BikeQuotation;

@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './car.css';
+import './fire.css';
 
-const Car = () => {
+const Fire = () => {
   const [formData, setFormData] = useState({
     fullName: '',
-    carModel: '',
-    insuranceType: '',
-    registrationNumber: '',
+    propertyType: '',
+    fireRiskLevel: '',
+    propertyAddress: '',
     contactNumber: '',
     email: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
-  const navigate = useNavigate(); // Use navigate hook
-
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,34 +23,35 @@ const Car = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    // Validate the form data
     if (Object.values(formData).some((field) => field.trim() === '')) {
-      setError('Please fill in all fields.');
-      return; // Prevent form submission if any field is empty
+      alert('Please fill in all fields.');
+      return;
     }
-  
+
     try {
-      const response = await fetch('http://localhost:3000/api/submit-car-form', {
+      const response = await fetch('http://localhost:3000/api/submit-fire-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
         const result = await response.json();
         console.log(result);
         setSubmitted(true);
+        // Reset form
         setFormData({
           fullName: '',
-          carModel: '',
-          insuranceType: '',
-          registrationNumber: '',
+          propertyType: '',
+          fireRiskLevel: '',
+          propertyAddress: '',
           contactNumber: '',
           email: '',
         });
-        navigate('/chart'); // Redirect to chart page after successful submission
+        navigate('/insurances/FIRE/FireChart')
       } else {
         const errorData = await response.json();
         setError(errorData.error);
@@ -62,18 +62,17 @@ const Car = () => {
     }
   };
 
- 
   return (
-    <div className="car-insurance-form">
-      <h2>Car Insurance Application</h2>
+    <div className="fire-insurance-form">
+      <h2>Fire Insurance Application</h2>
       {submitted ? (
         <div className="success-message">
           <h3>Thank You!</h3>
-          <p>Your car insurance application has been submitted successfully.</p>
+          <p>Your fire insurance application has been submitted successfully.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          {error && <div className="error-message">{error}</div>}
+           {error && <div className="error-message">{error}</div>}
           <div className="form-group">
             <label>Full Name:</label>
             <input
@@ -86,43 +85,15 @@ const Car = () => {
             />
           </div>
           <div className="form-group">
-            <label>Car Model:</label>
+            <label>Property Type:</label>
             <select
-              name="carModel"
-              value={formData.carModel}
+              name="propertyType"
+              value={formData.propertyType}
               onChange={handleChange}
               required
             >
-              <option value="">Select a Car Model</option>
-              {[
-                'Toyota Corolla',
-                'Honda Accord',
-                'Ford Explorer',
-                'Tesla Model S',
-                'BMW 3 Series',
-                'Audi A4',
-              ].map((model, index) => (
-                <option key={index} value={model}>
-                  {model}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="form-group">
-            <label>Insurance Type:</label>
-            <select
-              name="insuranceType"
-              value={formData.insuranceType}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select Insurance Type</option>
-              {[
-                'Comprehensive',
-                'Third-Party Liability',
-                'Collision Coverage',
-                'Personal Injury Protection',
-              ].map((type, index) => (
+              <option value="">Select Property Type</option>
+              {['Residential', 'Commercial', 'Industrial', 'Agricultural'].map((type, index) => (
                 <option key={index} value={type}>
                   {type}
                 </option>
@@ -130,13 +101,29 @@ const Car = () => {
             </select>
           </div>
           <div className="form-group">
-            <label>Registration Number:</label>
+            <label>Fire Risk Level:</label>
+            <select
+              name="fireRiskLevel"
+              value={formData.fireRiskLevel}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Risk Level</option>
+              {['Low', 'Medium', 'High', 'Critical'].map((risk, index) => (
+                <option key={index} value={risk}>
+                  {risk}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Property Address:</label>
             <input
               type="text"
-              name="registrationNumber"
-              value={formData.registrationNumber}
+              name="propertyAddress"
+              value={formData.propertyAddress}
               onChange={handleChange}
-              placeholder="Enter registration number"
+              placeholder="Enter property address"
               required
             />
           </div>
@@ -162,14 +149,11 @@ const Car = () => {
               required
             />
           </div>
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
+          <button type="submit" className="submit-button">Submit</button>
         </form>
       )}
     </div>
-
   );
 };
 
-export default Car;
+export default Fire;

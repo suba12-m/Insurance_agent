@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ApprovalForm.css';
+import './BikeApprovalForm.css';
 import { useNavigate } from 'react-router-dom';
 
 const providers = [
@@ -80,7 +80,7 @@ const plans = [
   },
 ];
 
-const ApprovalForm = () => {
+const BikeApprovalForm = () => {
     const navigate = useNavigate(); // Use useNavigate instead of useHistory
     const [selectedProvider, setSelectedProvider] = useState('');
     const [selectedPlan, setSelectedPlan] = useState('');
@@ -122,7 +122,7 @@ const ApprovalForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Navigate to Quotation page with client details
-    navigate('/insurances/BIKE/Quotation', { state: {
+    navigate('/insurances/BIKE/BikeQuotation', { state: {
         clientDetails,
         selectedProvider,
         selectedPlan,
@@ -247,4 +247,4 @@ const ApprovalForm = () => {
   );
 };
 
-export default ApprovalForm;
+export default BikeApprovalForm;

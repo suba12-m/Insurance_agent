@@ -1,0 +1,75 @@
+.fire-quotation-container {
+    margin: 40px;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 300px;
+    height: auto;
+  }
+  
+  .fquotation-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 35px;
+  }
+  
+  .quotation-details {
+    margin: 10px 0;
+  }
+  
+  .client-info,  .insurance-info {
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    color: #0073e6;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .download-button, .back-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .download-button {
+    background-color: #28a745;
+  }
+  
+  .back-button {
+    background-color: #0073e6;
+  }
+  
+  .download-button:hover, .back-button:hover {
+    opacity: 0.9;
+  }
+  
+  .footer-note {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #777;
+  }
