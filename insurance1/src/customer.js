@@ -1,5 +1,4 @@
 
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./customer.css";
@@ -106,10 +105,7 @@ const Customer = () => {
             marginBottom: "20px",
             color: "black",
             backgroundColor: "white",
-            
-            
-   
-    
+          
           }}
         >
           Insurance Agent

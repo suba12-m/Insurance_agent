@@ -21,7 +21,7 @@ const Home1 = () => {
       imgSrc: "/images/bike.jpg",
       title: "Bike Insurance",
       description: "Comprehensive coverage for bikes against accidents and theft.",
-      path: "/insurances/bike"
+      path: "/insurances/BIKE/bike"
     },
     {
       imgSrc: "/images/travel.png",

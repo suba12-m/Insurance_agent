@@ -1,9 +1,48 @@
+.car-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
 .tableauPlaceholder {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .tableauViz {
-    display: block; /* Ensure the object element is displayed */
-  }
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.noscript img {
+  width: 100%;
+}
+
+.action-buttons {
+  margin-top: 20px;
+}
+
+.approve-button, .disapprove-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  margin: 10px;
+}
+
+.approve-button {
+  background-color: #007bff;
+}
+
+.approve-button:hover {
+  background-color: #0056b3;
+}
+
+.disapprove-button {
+  background-color: #6c757d;
+}
+
+.disapprove-button:hover {
+  background-color: #5a6268;
+}

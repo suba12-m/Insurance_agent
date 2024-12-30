@@ -1,0 +1,71 @@
+/* BikeChart.css */
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center them horizontally */
+  margin-top: 20px; /* Add some spacing from the bottom */
+}
+
+.approve-button,
+.disapprove-button {
+  margin: 10px 0; /* Add vertical spacing */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 200px; /* Set consistent button width */
+  text-align: center; /* Center button text */
+}
+
+.approve-button {
+  background-color: #28a745;
+}
+
+.approve-button:hover {
+  background-color: #218838;
+}
+
+.disapprove-button {
+  background-color: #dc3545;
+}
+
+.disapprove-button:hover {
+  background-color: #c82333;
+}
+
+/* Ensures the container takes up the full viewport */
+.bike-chart {
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center;
+  justify-content: space-between; /* Push content to center and bottom */
+  background-color: #f4f4f4; /* Optional background color */
+}
+
+.tableauPlaceholder {
+  width: 100%; /* Full width of the parent */
+  height: 100%; /* Full height of the parent */
+  position: relative;
+}
+
+.tableauViz {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.noscript img {
+  width: 100%;
+  max-width: 600px; /* Optional: restrict image width to prevent stretching */
+}

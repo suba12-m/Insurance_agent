@@ -16,12 +16,12 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="dashboard">
-        <h1 style={{  textAlign: 'center', fontSize: '44px', marginBottom: '10px', color: 'black' }}>Insurance Agent</h1>
+        <h1 style={{  textAlign: 'center', fontSize: '44px', marginBottom: '10px', color: 'white' }}>Insurance Agent</h1>
         <div className="card" style={{ background: '#2e4a66', borderRadius: '10px', padding: '20px', textAlign: 'center', color: 'white' }}>
           <h3>Total Registered Users</h3>
           <p>7</p>
         </div>
-        <div className="card" style={{ background: '#4c8bf5', marginBottom: '10px',borderRadius: '10px', padding: '20px', textAlign: 'center', color: 'white' }}>
+        <div className="card" style={{ background: '#2e4a66', marginBottom: '10px',borderRadius: '10px', padding: '20px', textAlign: 'center', color: 'white' }}>
           <h3>Listed Policies</h3>
           <p>5</p>
         </div>

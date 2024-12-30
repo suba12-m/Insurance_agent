@@ -81,3 +81,4 @@ const FaqItem = ({ faq }) => {
 };
 
 export default Faq;
+

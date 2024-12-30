@@ -13,30 +13,50 @@ const Travel = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
-
+  const [error, setError] = useState('');
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Validate the form data
     if (Object.values(formData).some((field) => field.trim() === '')) {
       alert('Please fill in all fields.');
-    } else {
-      setSubmitted(true);
-      console.log('Form Data:', formData);
-      // Reset form
-      setFormData({
-        fullName: '',
-        age: '',
-        destination: '',
-        travelStartDate: '',
-        travelEndDate: '',
-        contactNumber: '',
-        email: '',
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:3000/api/submit-travel-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result);
+        setSubmitted(true);
+        // Reset form
+        setFormData({
+          fullName: '',
+          age: '',
+          destination: '',
+          travelStartDate: '',
+          travelEndDate: '',
+          contactNumber: '',
+          email: '',
+        });
+      } else {
+        const errorData = await response.json();
+        setError(errorData.error);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setError('An error occurred while submitting the form.');
     }
   };
 
@@ -50,6 +70,7 @@ const Travel = () => {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
+           {error && <div className="error-message">{error}</div>}
           <div className="form-group">
             <label>Full Name:</label>
             <input

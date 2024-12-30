@@ -1,0 +1,83 @@
+.quotation-container {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff; /* Changed background color to white for better contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced box shadow for a modern look */
+  font-family: Arial, sans-serif;
+}
+
+.quotation-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.quotation-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.client-info, .insurance-info {
+  width: 48%;
+}
+
+h3 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #333;
+}
+
+strong {
+  color: #555;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.download-button, .back-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+}
+
+.download-button {
+  background-color: #007bff; /* Changed button color to blue */
+}
+
+.download-button:hover {
+  background-color: #0056b3;
+}
+
+.back-button {
+  background-color: #6c757d; /* Changed button color to gray */
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+}
+
+.footer-note {
+  text-align: center;
+  margin-top: 20px;
+  color: #555;
+  font-size: 14px;
+}

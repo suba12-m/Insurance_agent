@@ -15,22 +15,54 @@ const Car = () => {
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate(); // Use navigate hook
 
+  const [error, setError] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+  
     if (Object.values(formData).some((field) => field.trim() === '')) {
-      alert('Please fill in all fields.');
-    } else {
-      setSubmitted(true);
-      console.log('Form Data:', formData);
-      navigate('/chart'); // Redirect to Chart page after submission
+      setError('Please fill in all fields.');
+      return; // Prevent form submission if any field is empty
+    }
+  
+    try {
+      const response = await fetch('http://localhost:3000/api/submit-car-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result);
+        setSubmitted(true);
+        setFormData({
+          fullName: '',
+          carModel: '',
+          insuranceType: '',
+          registrationNumber: '',
+          contactNumber: '',
+          email: '',
+        });
+        navigate('/chart'); // Redirect to chart page after successful submission
+      } else {
+        const errorData = await response.json();
+        setError(errorData.error);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setError('An error occurred while submitting the form.');
     }
   };
 
+ 
   return (
     <div className="car-insurance-form">
       <h2>Car Insurance Application</h2>
@@ -41,6 +73,7 @@ const Car = () => {
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
+          {error && <div className="error-message">{error}</div>}
           <div className="form-group">
             <label>Full Name:</label>
             <input
@@ -135,6 +168,7 @@ const Car = () => {
         </form>
       )}
     </div>
+
   );
 };
 
