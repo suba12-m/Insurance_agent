@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <div>
       <header className="header">
-        <div className="logo">
+        <div className="home-logo">
           <img src="/images/ins_LOGO.png" alt="Logo" style={{ width: '290px', height: '100px' }} />
         </div>
         <nav className="nav">
@@ -62,9 +62,9 @@ const Home = () => {
         </nav>
       </header>
 
-      <div className="banner">
+      <div className="pbanner">
         <h1>Presenting 1<sup>st</sup> Time in India - Live Brokerage & InstaPay</h1>
-        <p>Live Commission Tracking + Immediate Commission Payment</p>
+        <p className='homep'>Live Commission Tracking + Immediate Commission Payment</p>
       </div>
 
       <div className="features">
@@ -111,7 +111,7 @@ const Home = () => {
       )}
 
       <footer>
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p className='homepp'>&copy; 2024 Your Company. All rights reserved.</p>
       </footer>
     </div>
   );

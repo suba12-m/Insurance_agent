@@ -38,22 +38,23 @@ function Login() {
   return (
     <div>
       <header className="header">
-        <div className="logo">
+        <div className="home-logo">
           <img src="/images/ins_LOGO.png" alt="User Avatar" style={{ width: '290px', height: '100px' }} />
         </div>
         <nav className="nav">
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/dashboard">Dashboard</Link></li>
             <li><Link to="/login">Login</Link></li>
-            <li><Link to="#">Contact Us</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </nav>
       </header>
 
       <div>
+
         <div className="login">
-          <form onSubmit={handleLogin}>
+        <p className='loginp'> AGENT LOGIN</p>          
+        <form onSubmit={handleLogin}>
             <input
               type="text"
               placeholder="Email"

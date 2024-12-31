@@ -1,0 +1,105 @@
+.home-quotation-container {
+    width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff; /* Changed background color to white for better contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced box shadow for a modern look */
+  font-family: Arial, sans-serif;
+  }
+  
+  .logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 300px;
+    height: auto;
+  }
+  
+  .quotation-title {
+    text-align: center;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .quotation-details {
+    margin-top: 20px;
+  }
+  
+  .client-info,
+  .plan-info {
+    margin-bottom: 20px;
+  }
+  
+  .client-info h3,
+  .plan-info h3 {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+  }
+  
+  .client-info p,
+  .plan-info p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  .client-info p strong,
+  .plan-info p strong {
+    color: #444;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .download-button, .back-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .download-button {
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .download-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .back-button {
+    background-color: #6c757d;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #5a6268;
+  }
+  
+  @media (max-width: 768px) {
+    .home-quotation-container {
+      padding: 15px;
+    }
+  
+    .buttons {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .download-button,
+    .back-button {
+      width: 100%;
+    }
+  }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './travel.css';
 
 const Travel = () => {
@@ -14,6 +15,8 @@ const Travel = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Use navigate hook
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -50,6 +53,8 @@ const Travel = () => {
           contactNumber: '',
           email: '',
         });
+        navigate('/insurances/TRAVEL/TravelChart'); // Redirect to chart page after successful submission
+
       } else {
         const errorData = await response.json();
         setError(errorData.error);

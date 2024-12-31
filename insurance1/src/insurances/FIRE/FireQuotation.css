@@ -1,10 +1,12 @@
 .fire-quotation-container {
-    margin: 40px;
-    padding: 40px;
-    font-family: Arial, sans-serif;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #f9f9f9;
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff; /* Changed background color to white for better contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced box shadow for a modern look */
+  font-family: Arial, sans-serif;
   }
   
   .logo {

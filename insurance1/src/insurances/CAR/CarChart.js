@@ -12,7 +12,7 @@ const CarChart = () => {
   }, []);
 
   const handleApprove = () => {
-    navigate('/insurances/CAR/carapprove'); // Navigate to Approval Form page
+    navigate('/insurances/CAR/CarApproveform'); // Navigate to Approval Form page
   };
 
   const handleDisapprove = () => {

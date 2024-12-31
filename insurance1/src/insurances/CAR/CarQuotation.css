@@ -1,0 +1,51 @@
+.car-quotation-container {
+    width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #ffffff; /* Changed background color to white for better contrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced box shadow for a modern look */
+  font-family: Arial, sans-serif;
+  }
+  
+  .quotation-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+  }
+  
+  .quotation-details section {
+    margin-bottom: 20px;
+  }
+  
+  .quotation-details p {
+    margin: 5px 0;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .download-button{
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .back-button {
+    background-color: #6c757d; /* Changed button color to gray */
+  }
+  
+  .back-button:hover {
+    background-color: #5a6268;
+  }
+  
+  
+  .download-button:hover, .back-button:hover {
+    background-color: #0056b3;
+  }

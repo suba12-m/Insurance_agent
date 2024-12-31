@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './homeIns.css';
 
 const HomeIns = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     propertyType: '',
+    fireRiskLevel: '',
     propertyAddress: '',
-    propertyValue: '',
     contactNumber: '',
     email: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +30,7 @@ const HomeIns = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/api/submit-home-form', {
+      const response = await fetch('http://localhost:3000/api/submit-fire-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,11 +46,12 @@ const HomeIns = () => {
         setFormData({
           fullName: '',
           propertyType: '',
+          fireRiskLevel: '',
           propertyAddress: '',
-          propertyValue: '',
           contactNumber: '',
           email: '',
         });
+        navigate('/insurances/HOME/HomeChart')
       } else {
         const errorData = await response.json();
         setError(errorData.error);
@@ -60,16 +63,16 @@ const HomeIns = () => {
   };
 
   return (
-    <div className="home-insurance-form">
+    <div className="fire-insurance-form">
       <h2>Home Insurance Application</h2>
       {submitted ? (
         <div className="success-message">
           <h3>Thank You!</h3>
-          <p>Your home insurance application has been submitted successfully.</p>
+          <p>Your fire insurance application has been submitted successfully.</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
-          {error && <div className="error-message">{error}</div>}
+           {error && <div className="error-message">{error}</div>}
           <div className="form-group">
             <label>Full Name:</label>
             <input
@@ -90,9 +93,25 @@ const HomeIns = () => {
               required
             >
               <option value="">Select Property Type</option>
-              {['Apartment', 'Villa', 'Independent House', 'Farmhouse', 'Condominium'].map((type, index) => (
+              {['Residential', 'Commercial', 'Industrial', 'Agricultural'].map((type, index) => (
                 <option key={index} value={type}>
                   {type}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Fire Risk Level:</label>
+            <select
+              name="fireRiskLevel"
+              value={formData.fireRiskLevel}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Risk Level</option>
+              {['Low', 'Medium', 'High', 'Critical'].map((risk, index) => (
+                <option key={index} value={risk}>
+                  {risk}
                 </option>
               ))}
             </select>
@@ -105,17 +124,6 @@ const HomeIns = () => {
               value={formData.propertyAddress}
               onChange={handleChange}
               placeholder="Enter property address"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Property Value (in USD):</label>
-            <input
-              type="number"
-              name="propertyValue"
-              value={formData.propertyValue}
-              onChange={handleChange}
-              placeholder="Enter property value"
               required
             />
           </div>

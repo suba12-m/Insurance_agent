@@ -4,7 +4,6 @@ import './home1.css';
 
 const Home1 = () => {
   const [activeCard, setActiveCard] = useState(null); // To track the active card for description
-  const [dropdownOpen, setDropdownOpen] = useState(false); // Dropdown visibility state
   const navigate = useNavigate();
 
   // Fetch and parse the authentication status
@@ -67,34 +66,20 @@ const Home1 = () => {
     }
   };
 
-  // Handle dropdown toggle
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (dropdownOpen && !event.target.closest('.profile-dropdown')) {
-        setDropdownOpen(false);
-      }
-    };
-    document.addEventListener('click', handleOutsideClick);
-    return () => {
-      document.removeEventListener('click', handleOutsideClick);
-    };
-  }, [dropdownOpen]);
-
-  // Handle logout and redirect to home page
-  const handleLogout = () => {
-    localStorage.removeItem('isAuthenticated'); // Remove authentication status
-    navigate('/'); // Redirect to home page
+  // Navigate to the customer dashboard directly when clicking the person icon
+  const handleProfileClick = () => {
+    if (!isAuthenticated) {
+      alert("Please log in to access this feature.");
+      navigate('/login');
+    } else {
+      navigate('/customer'); // Redirect to the customer page
+    }
   };
 
   return (
     <div>
       <header className="header">
-        <div className="logo">
+        <div className="home-logo">
           <img src="/images/ins_LOGO.png" alt="Logo" style={{ width: '290px', height: '100px' }} />
         </div>
         <nav className="nav">
@@ -102,28 +87,23 @@ const Home1 = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/contact">Contact us</Link></li>
             <li>
-              <div className="profile-dropdown">
+              <div className="profile-icon">
                 <img 
                   src="/images/user-icon.png" 
                   alt="User Icon" 
                   className="user-icon" 
-                  onClick={toggleDropdown} 
+                  onClick={handleProfileClick} 
+                  style={{ cursor: 'pointer' }}
                 />
-                {dropdownOpen && (
-                  <ul className="dropdown-menu">
-                    <li><Link to="/dashboard">My Dashboard</Link></li>
-                    <li><button onClick={handleLogout} className="logout-button">Logout</button></li> {/* Use a button instead of Link */}
-                  </ul>
-                )}
               </div>
             </li>
           </ul>
         </nav>
       </header>
 
-      <div className="banner">
+      <div className="pbanner">
         <h1>Presenting 1<sup>st</sup> Time in India - Live Brokerage & InstaPay</h1>
-        <p>Live Commission Tracking + Immediate Commission Payment</p>
+        <p className='homep'>Live Commission Tracking + Immediate Commission Payment</p>
       </div>
 
       <div className="features">
@@ -157,7 +137,7 @@ const Home1 = () => {
       </div>
 
       <footer>
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p className='homepp'>&copy; 2024 Your Company. All rights reserved.</p>
       </footer>
     </div>
   );

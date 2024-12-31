@@ -1,0 +1,44 @@
+.home-chart {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa; /* Full width of the container */
+  }
+  
+  .tableauPlaceholder {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .tableauViz {
+    width: 100%; /* Full width */
+    height: auto; /* Auto height ensures responsive sizing */
+  }
+  
+  .action-buttons {
+    margin-top: 20px;
+  }
+  
+  .approve-button, 
+  .disapprove-button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+  
+  .approve-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .disapprove-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }

@@ -1,13 +1,17 @@
 /* Table Container */
 .table-container {
     width: 80%;
-    margin: 20px auto;
-    
+    background-color: #eeeeedc7;
     padding: 20px;
-    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .sidebar {
+    width: 20%;
+    background-color: linear-gradient(180deg, #4c8bf5, #1e62d0);
+    color: #fff;
+    padding: 20px;
+  }
 
 .container {
     display: flex;
@@ -45,6 +49,11 @@
 .menu {
     margin-top: 20px;
     width: 100%;
+    
+}
+
+.menu :active{
+  background-color:rgb(68, 68, 68)
 }
 
 

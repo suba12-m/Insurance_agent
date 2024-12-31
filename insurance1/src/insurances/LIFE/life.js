@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './life.css';
 
 const Life= () => {
@@ -13,6 +14,8 @@ const Life= () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Use navigate hook
+
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,6 +52,7 @@ const Life= () => {
           email: '',
           coverageAmount: '',
         });
+        navigate('/insurances/LIFE/LifeChart');
       } else {
         const errorData = await response.json();
         setError(errorData.error);

@@ -1,0 +1,57 @@
+.travel-quotation-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .travel-quotation-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .quotation-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  section {
+    width: 48%;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  .buttons {
+    text-align: center;
+  }
+  
+  .download-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .back-button {
+    background-color: #6c757d; /* Changed button color to gray */
+  }
+
+  .back-button:hover {
+    background-color: #5a6268;
+  }
+  
+  .download-button:hover {
+    background-color: #0056b3;
+  }

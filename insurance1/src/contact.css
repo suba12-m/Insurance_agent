@@ -1,25 +1,54 @@
 
   /* Container for Contact Page */
   .contact-container {
-    display: grid; /* Use CSS Grid */
     place-items: center; /* Center horizontally and vertically */
-    width: 100%;
     height: 100vh; /* Full viewport height */
-    max-width: 1200px; /* Limit width */
-    padding: 20px;
     background-color: #f5f8fa;
     margin: 0 auto; /* Center horizontally in case of width limits */
     box-sizing: border-box;
   }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #0b0b0b;
+  }
   
+  .header .logo img {
+    height: 50px;
+  }
+  
+  .header .nav ul {
+    display: flex;
+    list-style: none;
+    
+  }
+  
+  .header .nav ul li {
+    padding: 0%;
+  }
+  
+  .header .nav ul li a {
+    color: #080808;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .header .nav ul li a:hover {
+    color: #1d44e1;
+  }
   /* Header Section */
-  .contact-header {
-    background-color: #1d44e1;
-    color: white;
-    padding: 20px 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    text-align: center;
+  .banner {
+    text-align:center;
+    background: linear-gradient(to right, #4c8bf5, #1e62d0);
+    color: #fff;
+    padding: 50px 20px;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
   }
   
   .contact-header h1 {
@@ -48,13 +77,13 @@
   
   .contact-form h2 {
     font-size: 1.5rem;
-    color: #1d44e1;
+    color: #2b65e2;
     margin-bottom: 20px;
   }
   
   .contact-form label {
     font-size: 1rem;
-    color: #1d44e1;
+    color: #010101;
     margin-top: 12px;
     display: block;
   }
@@ -71,7 +100,7 @@
   }
   
   .contact-form button {
-    background-color: #1d44e1;
+    background-color: #4c8bf5;
     color: white;
     padding: 12px;
     border: none;
@@ -87,34 +116,7 @@
   }
   
   /* Footer Section */
-  .contact-footer {
-    background-color: #1d44e1;
-    color: white;
-    padding: 20px;
-    margin-top: 30px;
-    text-align: center;
-    border-radius: 8px;
-  }
   
-  .contact-footer p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-  }
-  
-  .contact-footer .contact-details {
-    font-size: 1rem;
-    margin-bottom: 10px;
-    color: #f0f8ff;
-  }
-  
-  .contact-footer .contact-details a {
-    color: #ffd700;
-    text-decoration: none;
-  }
-  
-  .contact-footer .contact-details a:hover {
-    color: #f0f8ff;
-  }
   
   /* Responsive Design for smaller screens */
   @media (max-width: 768px) {
@@ -133,9 +135,12 @@
       margin-right: 0;
     }
   
-    .contact-footer {
+    .bottom{
+      text-align: center;
       padding: 10px;
-    }
+      color: #fff;
+      margin-top: 20px; 
+max-width: 100%;  }
   
     .social-media-links a {
       font-size: 1.1rem;

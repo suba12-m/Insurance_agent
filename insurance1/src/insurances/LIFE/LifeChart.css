@@ -1,0 +1,49 @@
+.life-chart {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+  
+  .tableauPlaceholder {
+    width: 100%; /* Ensure the Tableau viz takes full width */
+    height: 100%; /* Ensure the Tableau viz takes full height */
+  }
+  
+  .tableauViz {
+    width: 100%; /* Make the Tableau visualization responsive */
+    height: 100%; /* Make the Tableau visualization responsive */
+  }
+  
+  .action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .approve-button,
+  .disapprove-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .approve-button {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  .disapprove-button {
+    background-color: #6c757d;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  .approve-button:hover,
+  .disapprove-button:hover {
+    opacity: 0.9;
+  }

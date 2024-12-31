@@ -5,7 +5,6 @@ import Home from './home';
 import Home1 from './home1';
 import Login from './login';
 import Contact from './contact';
-import Dashboard from './dashboard';
 import Customer from './customer';
 import Policy from './policy';
 // car
@@ -53,7 +52,6 @@ function App() {
           <Route path="/" element={<Home />} /> {/* Home route */}
           <Route path="/home1" element={isAuthenticated ? <Home1 /> : <Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/customer" element={<Customer />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/policy" element={<Policy />} />
@@ -83,7 +81,7 @@ function App() {
           <Route path="/insurances/TRAVEL/TravelApprove" element={<TravelApprove />} />
           <Route path="/insurances/TRAVEL/TravelQuotation" element={<TravelQuotation />} />
           {/* life */}
-          <Route path="/insurances/LIFE" element={<Life />} />
+          <Route path="/insurances/LIFE/life" element={<Life />} />
           <Route path="/insurances/LIFE/LifeChart" element={<LifeChart />} />
           <Route path="/insurances/LIFE/LifeApprove" element={<LifeApprove />} />
           <Route path="/insurances/LIFE/LifeQuotation" element={<LifeQuotation />} />

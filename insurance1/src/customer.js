@@ -1,12 +1,13 @@
-
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./customer.css";
 
 const Customer = () => {
   const [customers, setCustomers] = useState([]);
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Correct usage of useNavigate
+  const navigate = useNavigate();
+
+  // Fetch authentication status
 
   useEffect(() => {
     const fetchCustomers = async () => {
@@ -52,94 +53,111 @@ const Customer = () => {
     }
   };
 
+  
+
   return (
-    <div className="container">
-      <div className="sidebar">
-        <img
-          src="/images/admin.png"
-          alt="User Avatar"
-          style={{
-            borderRadius: "50%",
-            marginBottom: "10px",
-            width: "80px",
-          }}
-        />
-        <div className="menu">
-          <a href="/dashboard">Dashboard</a>
-          <a
-            href="/customer"
-            className="active"
-            style={{
-              display: "block",
-              padding: "10px 20px",
-              color: "#fff",
-              textDecoration: "none",
-              fontSize: "16px",
-              backgroundColor: "#444",
-              borderLeft: "4px solid #f3d250",
-            }}
-          >
-            Customer
-          </a>
-          <a
-            href="/faq"
-            style={{
-              display: "block",
-              padding: "10px 20px",
-              color: "#fff",
-              textDecoration: "none",
-              fontSize: "16px",
-            }}
-          >
-            Questions
-          </a>
+    <div>
+      {/* Header Section */}
+      <header className="header">
+        <div className="home-logo">
+          <img src="/images/ins_LOGO.png" alt="Logo" style={{ width: '290px', height: '100px' }} />
         </div>
-      </div>
+        <nav className="nav">
+          <ul>
+            <li><Link to="/home1">Home</Link></li>
+            <li><Link to="/contact">Contact us</Link></li>
+            <li><Link to="/login">Logout</Link></li>
+            
+          </ul>
+        </nav>
+      </header>
 
-      <div className="table-container">
-        <h1
-          style={{
-            gridColumn: "1 / -1",
-            textAlign: "center",
-            fontSize: "24px",
-            marginBottom: "20px",
-            color: "black",
-            backgroundColor: "white",
-          
-          }}
-        >
-          Insurance Agent
-        </h1>
+      {/* Customer Page Content */}
+      <div className="container">
+        <div className="sidebar">
+          <img
+            src="/images/admin.png"
+            alt="User Avatar"
+            style={{
+              borderRadius: "50%",
+              marginBottom: "10px",
+              width: "80px",
+            }}
+          />
+          <div className="menu">
+            <a
+              href="/customer"
+              className="active"
+              style={{
+                display: "block",
+                padding: "10px 20px",
+                color: "black",
+                textDecoration: "none",
+                fontSize: "16px",
+                backgroundColor: "#ffffff",
+                borderLeft: "4px solid black",
+              }}
+            >
+              Customer
+            </a>
+            <a
+              href="/faq"
+              style={{
+                display: "block",
+                padding: "10px 20px",
+                color: "#fff",
+                textDecoration: "none",
+                fontSize: "16px",
+              }}
+            >
+              FAQ
+            </a>
+          </div>
+        </div>
 
-        {error && <div className="error-message">{error}</div>}
+        <div className="table-container">
+          <h1
+            style={{
+              gridColumn: "1 / -1",
+              textAlign: "center",
+              fontSize: "30px",
+              marginBottom: "20px",
+              color: "black",
+            }}
+          >
+            Insurance Agent
+          </h1>
 
-        <table className="insurance-table">
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>Customer Names</th>
-              <th>Category</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {customers.map((customer, index) => (
-              <tr key={customer._id}>
-                <td>{index + 1}</td>
-                <td>{customer.fullName}</td>
-                <td>{customer.category}</td>
-                <td>
-                  <button
-                    className="edit-btn"
-                    onClick={() => handleEdit(customer._id, customer.category)}
-                  >
-                    EDIT
-                  </button>
-                </td>
+          {error && <div className="error-message">{error}</div>}
+
+          <table className="insurance-table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Customer Names</th>
+                <th>Category</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {customers.map((customer, index) => (
+                <tr key={customer._id}>
+                  <td>{index + 1}</td>
+                  <td>{customer.fullName}</td>
+                  <td>{customer.category}</td>
+                  <td>
+                    <button
+                      className="edit-btn"
+                      onClick={() => handleEdit(customer._id, customer.category)}
+                    >
+                      EDIT
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

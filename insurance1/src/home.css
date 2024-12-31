@@ -36,10 +36,11 @@ body {
   .header .nav ul {
     display: flex;
     list-style: none;
+    
   }
   
   .header .nav ul li {
-    margin-left: 20px;
+    padding: 0%;
   }
   
   .header .nav ul li a {
@@ -53,29 +54,38 @@ body {
     color: #1d44e1;
   }
   
-  .banner {
+  .pbanner {
     text-align:center;
     background: linear-gradient(to right, #4c8bf5, #1e62d0);
     color: #fff;
     padding: 50px 20px;
   }
   
-  .banner h1 {
+  .pbanner h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
   }
   
-  .banner p {
+  .homebanner p {
     font-size: 1.4rem;
     margin-bottom: 20px;
+    color: white;
   }
 
-  p {
-    color: #ff2b00; /* Bootstrap danger color */
+  .homep {
+    color: #000000; /* Bootstrap danger color */
     transition: opacity 0.5s ease;
+    font-weight: bold;
+    font-size: x-large;
   }
-  
-  .banner button {
+  .homepp {
+    color: #000000; /* Bootstrap danger color */
+    transition: opacity 0.5s ease;
+    font-weight: bold;
+    font-size: large;
+    width: 100%;
+  }
+  .pbanner button {
     padding: 10px 20px;
     background-color: #ffd700;
     border: none;
@@ -158,6 +168,7 @@ body {
   .insurance-description {
     margin-top: 10px;
     font-size: 0.9rem;
+    width: 100%;
     color: #444;
     background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient color */
     color: white;
@@ -188,6 +199,8 @@ body {
   .insurance-box.active img {
     transform: scale(1.1); /* Enlarge image when active */
   }
+
+
   
   /* Modal Overlay */
 .modal {
