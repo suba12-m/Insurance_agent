@@ -1,12 +1,16 @@
 import express, { json } from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv'; // Import dotenv package
 import { MongoClient } from 'mongodb';
+
+dotenv.config(); // Load environment variables from .env file
+
 const app = express();
 
 app.use(cors()); // Apply CORS middleware
 app.use(json()); // Parse JSON requests
 
-const url = "mongodb+srv://kpoornima2003:mongo@cluster0.nffn8.mongodb.net/";
+const url = process.env.MONGO_URI; // Use environment variable
 const client = new MongoClient(url);
 
 const dbName = "users"; // Replace with your actual database name
@@ -68,6 +72,6 @@ app.post("/login", async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log("Server started on port 3000");
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server started on port ${process.env.PORT || 3000}`);
 });
