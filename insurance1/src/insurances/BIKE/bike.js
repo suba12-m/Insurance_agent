@@ -26,7 +26,7 @@ const Bike = () => {
       return;
     }
     try {
-      const response = await fetch('https://insurance-agent.onrender.com/api/submit-bike-form', {
+      const response = await fetch('https://localhost:3000/api/submit-bike-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

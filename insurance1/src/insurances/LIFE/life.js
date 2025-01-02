@@ -31,7 +31,7 @@ const Life= () => {
     }
 
     try {
-      const response = await fetch('https://insurance-agent.onrender.com/api/submit-life-form', {
+      const response = await fetch('https://localhost:3000/api/submit-life-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

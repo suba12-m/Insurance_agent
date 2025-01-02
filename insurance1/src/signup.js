@@ -11,23 +11,23 @@ function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-
+  
     // Basic client-side validation
     if (password !== confirmPassword) {
       setMessage('Passwords do not match.');
       return;
     }
-
+  
     try {
-      const response = await fetch('https://insurance-agent.onrender.com/register', {
+      const response = await fetch('http://localhost:3000/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
       console.log('Server response:', data);
-
+  
       if (response.ok) {
         setMessage(data.msg || 'Registration successful!');
         setTimeout(() => navigate('/login'), 2000); // Navigate to login page after 2 seconds

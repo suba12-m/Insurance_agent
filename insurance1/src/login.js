@@ -10,22 +10,22 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await fetch('https://insurance-agent.onrender.com/login', {
+      const response = await fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
-
+  
       if (response.ok) {
-        setMessage(data.msg);
+        setMessage(data.msg || 'Login successful!');
         localStorage.setItem('isAuthenticated', JSON.stringify(true));
-        navigate('/home1');
+        navigate('/home1'); // Redirect to your home page or dashboard
       } else {
-        setMessage(data.msg);
+        setMessage(data.msg || 'Invalid email or password.');
       }
     } catch (error) {
       console.error('Error:', error);

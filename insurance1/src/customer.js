@@ -12,7 +12,7 @@ const Customer = () => {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const response = await fetch('https://insurance-agent.onrender.com/api/customers');
+        const response = await fetch('https://ilocalhost:3000/api/customers');
         if (!response.ok) {
           throw new Error('Failed to fetch customers');
         }
