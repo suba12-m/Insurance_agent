@@ -92,7 +92,10 @@
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s ease-in-out;
+  
 }
+
+
 
 .button:hover {
   background: #2b65e2;

@@ -11,6 +11,7 @@ const Bike = () => {
     email: '',
   });
 
+  const [submitted, setSubmitted] = useState(false);  const [error, setError] = useState('');
   const navigate = useNavigate(); // For navigation
 
   const handleChange = (e) => {
@@ -24,21 +25,33 @@ const Bike = () => {
       alert('Please fill in all fields.');
       return;
     }
-
     try {
-      // Simulating form submission (Replace with actual API call if needed)
-      console.log('Form data submitted:', formData);
-      setFormData({
-        fullName: '',
-        bikeModel: '',
-        registrationNumber: '',
-        contactNumber: '',
-        email: '',
+      const response = await fetch('https://insurance-agent.onrender.com/api/submit-bike-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      // Navigate to BikeChart page
-      navigate('/insurances/BIKE/BikeChart');
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result);
+        setSubmitted(true); // Correctly set submitted status
+        setFormData({ // Reset form data
+          fullName: '',
+          bikeModel: '',
+          registrationNumber: '',
+          contactNumber: '',
+          email: '',
+        });
+        navigate('/insurances/BIKE/BikeChart'); // Navigate to the BikeChart page
+      } else {
+        const errorData = await response.json();
+        setError(errorData.error);
+      }
     } catch (error) {
       console.error('Error:', error);
+      setError('An error occurred while submitting the form.');
     }
   };
 
@@ -46,6 +59,7 @@ const Bike = () => {
     <div className="bike-insurance-form">
       <h2>Bike Insurance Application</h2>
       <form onSubmit={handleSubmit}>
+      {error && <div className="error-message">{error}</div>}
         <div className="form-group">
           <label>Owner's Name:</label>
           <input

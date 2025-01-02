@@ -6,42 +6,79 @@ import bodyParser from 'body-parser';
 const app = express();
 import cors from 'cors';
 app.use(json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://insurance-agent.onrender.com', // Replace with your deployed frontend origin
+    methods: 'GET,POST',
+    allowedHeaders: 'Content-Type',
+  }));
 app.use(bodyParser.urlencoded({extended:true}));
 
 const url ="mongodb+srv://kpoornima2003:mongo@cluster0.nffn8.mongodb.net/";
 const client = new MongoClient(url);
+// const bcrypt = require('bcrypt');
 
 app.post("/register", async (req, res) => {
-    await client.connect(); 
-    const { email, password } = req.body; 
-    console.log(email, password);
-    const db = client.db("users"); 
-    const list = await db.collection("agents").insertOne({ email, password }); 
-
-    if (list.insertedId) {
-        res.json({ msg: "Registered" });
-    } else {
-        res.status(400).json({ msg: "Error" });
+    try {
+      await client.connect();
+      const db = client.db(dbName);
+      const { email, password } = req.body;
+  
+      // Validate input
+      if (!email || !password) {
+        return res.status(400).json({ msg: "Email and password are required." });
+      }
+  
+      // Check if the email already exists
+      const existingUser = await db.collection("agents").findOne({ email });
+      if (existingUser) {
+        return res.status(400).json({ msg: "Email is already registered." });
+      }
+  
+      // Insert user into the database
+      const result = await db.collection("agents").insertOne({ email, password });
+  
+      if (result.insertedId) {
+        res.status(201).json({ msg: "Registration successful!" });
+      } else {
+        res.status(500).json({ msg: "Failed to register. Please try again later." });
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      res.status(500).json({ msg: "Internal server error." });
+    } finally {
+      await client.close();
     }
-});
+  });
 
-app.post("/login", async (req, res) => {
-    await client.connect(); 
-    const { email, password } = req.body; 
-    console.log(email, password);
-    const db = client.db("users"); 
-    const user = await db.collection("agents").findOne({ email, password }); 
-
-    if (user) { 
-        res.json({ msg: "Login successfully" });
-    } else {
-        res.status(400).json({ msg: "Invalid email or password" });
+  app.post("/login", async (req, res) => {
+    try {
+      await client.connect();
+      const db = client.db(dbName);
+      const { email, password } = req.body;
+  
+      // Validate input
+      if (!email || !password) {
+        return res.status(400).json({ msg: "Email and password are required." });
+      }
+  
+      // Find user by email and password
+      const user = await db.collection("agents").findOne({ email, password });
+  
+      if (!user) {
+        return res.status(400).json({ msg: "Invalid email or password." });
+      }
+  
+      res.status(200).json({ msg: "Login successful!" });
+    } catch (error) {
+      console.error("Error:", error);
+      res.status(500).json({ msg: "Internal server error." });
+    } finally {
+      await client.close();
     }
-});
+  });
 
 
-app.post("/api/submit-form", async (req, res) => {
+app.post("/api/submit-bike-form", async (req, res) => {
     try {
         const { fullName, bikeModel, registrationNumber, contactNumber, email } = req.body;
 

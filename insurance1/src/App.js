@@ -39,6 +39,7 @@ import BikeApprovalForm from './insurances/BIKE/BikeApprovalForm';
 import BikeQuotation from './insurances/BIKE/BikeQuotation';
 
 import Faq from './faq';
+import Signup from './signup';
 
 
 
@@ -52,6 +53,7 @@ function App() {
           <Route path="/" element={<Home />} /> {/* Home route */}
           <Route path="/home1" element={isAuthenticated ? <Home1 /> : <Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/customer" element={<Customer />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/policy" element={<Policy />} />
