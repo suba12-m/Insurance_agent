@@ -31,7 +31,7 @@ const Car = () => {
     }
   
     try {
-      const response = await fetch('https://localhost:3000/api/submit-car-form', {
+      const response = await fetch('https://insurance-agent-backend.onrender.com/api/submit-car-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

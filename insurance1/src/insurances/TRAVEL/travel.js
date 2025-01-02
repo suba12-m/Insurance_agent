@@ -31,7 +31,7 @@ const Travel = () => {
     }
 
     try {
-      const response = await fetch('https://localhost:3000/api/submit-travel-form', {
+      const response = await fetch('https://insurance-agent-backend.onrender.com/api/submit-travel-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

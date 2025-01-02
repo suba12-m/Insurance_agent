@@ -30,7 +30,7 @@ const Fire = () => {
     }
 
     try {
-      const response = await fetch('https://localhost:3000/api/submit-fire-form', {
+      const response = await fetch('https://insurance-agent-backend.onrender.com/api/submit-fire-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
